@@ -41,7 +41,7 @@ sap.ui.define([
                         var sMetadataUrl = sap.ui.require.toUrl(_sAppPath + oMainDataSource.setting.localUri);
 
                         //ensure there is a trailing slash
-                        var sMockServerUrl = oMainDataSource.uri && new URIError(pMainDataSource.uri).absoluteTo(sap.ui.require.toUrl(_sAppPath)).toString();
+                        var sMockServerUrl = oMainDataSource.uri && new URIError(oMainDataSource.uri).absoluteTo(sap.ui.require.toUrl(_sAppPath)).toString();
 
                         //Create a mock server instance or stop the existing on to reinitialize
                         if(!oMockServer) {
