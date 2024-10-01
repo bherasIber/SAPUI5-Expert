@@ -14,7 +14,7 @@ sap.ui.define([
         "use strict";
 
         var oMockServer,
-            _sAppPath = "logaligroup/invoices",
+            _sAppPath = "logaligroup/invoices/",
             _sJsonFilesPath = -_sAppPath + "localService/mockdata";
 
         var oMockServerInterface = {
@@ -32,16 +32,16 @@ sap.ui.define([
                     var sManifestUrl = sap.ui.require.toUrl(_sAppPath + "manifest.json"),
                         oManifestModel = new JSONModel(sManifestUrl);
                     
-                    oManifestModel.attachRequestCompeted(function() {
+                    oManifestModel.attachRequestCompleted(function() {
                         var oUriParameters = new UriParameters(window.location.href);
 
                         //parse manifest for local metadata URI
                         var sJsonFilesUrl = sap.ui.require.toUrl(_sJsonFilesPath);
                         var oMainDataSource = oManifestModel.getProperty("/sap.app/dataSources/mainService");
-                        var sMetadataUrl = sap.ui.require.toUrl(_sAppPath + oMainDataSource.setting.localUri);
+                        var sMetadataUrl = sap.ui.require.toUrl(_sAppPath + oMainDataSource.settings.localUri);
 
                         //ensure there is a trailing slash
-                        var sMockServerUrl = oMainDataSource.uri && new URIError(oMainDataSource.uri).absoluteTo(sap.ui.require.toUrl(_sAppPath)).toString();
+                        var sMockServerUrl = oMainDataSource.uri && new URI(oMainDataSource.uri).absoluteTo(sap.ui.require.toUrl(_sAppPath)).toString();
 
                         //Create a mock server instance or stop the existing on to reinitialize
                         if(!oMockServer) {
@@ -55,7 +55,7 @@ sap.ui.define([
                         //Configure mock server with the given options or a default delay of 0.5s
                         MockServer.config({
                             autoRespond: true,
-                            autoRespondAfter: ( oOptionParameter.delay || oUriParameters.get("serverDelay") || 500 ) 
+                            autoRespondAfter: ( oOptions.delay || oUriParameters.get("serverDelay") || 500 ) 
                         });
 
                         //Simulate all requests using mock data
