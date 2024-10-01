@@ -9,7 +9,7 @@ function(mockserver,Messagebox){
 
     "use strict";
 
-    var aMockServers = [];
+    var aMockServers = []; 
 
     //Inicialize the mock server
     aMockServers.push(mockserver.init());
