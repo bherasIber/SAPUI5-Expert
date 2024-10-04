@@ -3,21 +3,6 @@
         xmlns:mvc="sap.ui.core.mvc" 
         displayBlock="true">
         <Shell id="shell">
-                <App id="app">
-                        <pages>
-                                <Page id="page" title="{i18n>appTitle}">
-                                        <headerContent>
-                                             <Button id="helloDialogHeader" 
-                                                        icon="sap-icon://action" 
-                                                        press=".onOpenDialogHeader" 
-                                                        class="sapUiSmallMarginEnd" />   
-                                        </headerContent>
-                                        <content>
-                                             <mvc:XMLView id="viewHelloPanel" viewName="logaligroup.invoices.view.HelloPanel"/>
-                                             <mvc:XMLView id="viewInvoicesList" viewName="logaligroup.invoices.view.InvoicesList"/>
-                                        </content>
-                                </Page>
-                        </pages>
-                </App>
+                <App id="app"/>
         </Shell>
 </mvc:View>
