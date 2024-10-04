@@ -22,7 +22,9 @@
             <ObjectListItem id="objListItem" title="{northwind>Quantity} x {northwind>ProductName}" 
                                             number="{ parts: [{path:'northwind>ExtendedPrice'}]}"
                                             numberUnit="{currency>/usd}"
-                                            numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}">
+                                            numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}"
+                                            type="Navigation"
+                                            press="navigateToDetails">
                 <!--firstStatus>
                     <ObjectStatus id="objStatus" text="{ path: 'invoices>Status',
                                                         formatter: '.formatter.invoiceStatus'}"></ObjectStatus>

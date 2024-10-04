@@ -2,8 +2,19 @@
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc" 
         displayBlock="true">
-    <Page id="page" title="{i18n>detailsPageTitle}">
-        <ObjectHeader id="objectHeader" title="Invoice Details"></ObjectHeader>
+    <Page id="pageDetails" title="{i18n>detailsPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <ObjectHeader id="objectHeader" title="{northwind>Quantity} x {northwind>ProductName}">
+            <attributes>
+                <ObjectAttribute id="ShipName" text="{northwind>ShipName}"/>
+                <ObjectAttribute id="ShipAddress" text="{northwind>ShipAddress}"/>
+                <ObjectAttribute id="ShipCity" text="{northwind>ShipCity}"/>
+                <ObjectAttribute id="ShipRegion" text="{northwind>ShipRegion}"/>
+                <ObjectAttribute id="ShipPostalCode" text="{northwind>ShipPostalCode}"/>
+                <ObjectAttribute id="ShipCountry" text="{northwind>ShipCountry}"/>
+                <ObjectAttribute id="CustomerID" text="{northwind>CustomerID}"/>
+                <ObjectAttribute id="CustomerName" text="{northwind>CustomerName}"/>
+            </attributes>
+        </ObjectHeader>
     </Page>
 
 </mvc:View>
