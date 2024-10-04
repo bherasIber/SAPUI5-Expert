@@ -18,7 +18,7 @@ function(InvoicesFormatter, ResourceModel) {
         },
 
         afterEach: function() {
-            TouchList._oResourceModel.destroy();
+            this._oResourceModel.destroy();
         }
     });
 
