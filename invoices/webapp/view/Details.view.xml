@@ -1,6 +1,7 @@
 <mvc:View controllerName="logaligroup.invoices.controller.Details"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc" 
+        xmlns:logali="logaligroup.invoices.control"
         displayBlock="true">
     <Page id="pageDetails" title="{i18n>detailsPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
         <ObjectHeader id="objectHeader" title="{northwind>Quantity} x {northwind>ProductName}">
@@ -15,6 +16,7 @@
                 <ObjectAttribute id="CustomerName" text="{northwind>CustomerName}"/>
             </attributes>
         </ObjectHeader>
+        <logali:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange"></logali:ProductRating>
     </Page>
 
 </mvc:View>
