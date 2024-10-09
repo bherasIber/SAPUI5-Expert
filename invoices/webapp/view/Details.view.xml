@@ -19,4 +19,4 @@
         <logali:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange"></logali:ProductRating>
     </Page>
 
-</mvc:View>
+</mvc:View> 
