@@ -2,7 +2,7 @@
         controllerName="logaligroup.invoices.controller.InvoicesList"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc">
-    <List id="invoiceList" 
+    <Table id="invoiceList" 
         headerText="{i18n>invoicelistTitle}" 
         class="sapUiResponsiveMargin" 
         width="auto" 
@@ -18,18 +18,46 @@
                 <SearchField id="searchList" width="50%" search=".onFilterInvoices"/>
             </Toolbar>
         </headerToolbar>
+        <columns>
+            <Column id="columnQuantity" hAlign="End" minScreenWidth="Small" demandPopin="true" width="5em">
+                <Text id="textQuantity" text="{i18n>columnQuantity}"></Text>
+            </Column>
+            <Column id="columnName">
+                <Text id="textName" text="{i18n>columnName}"/>
+            </Column>
+            <Column id="columnStatus" minScreenWidth="Small" demandPopin="true">
+                <Text id="textStatus" text="{i18n>columnStatus}"/>
+            </Column>
+            <Column id="columnSupplier" minScreenWidth="Tablet">
+                <Text id="textSupplier" text="{i18n>columnSupplier}"/>
+            </Column>
+            <Column id="columnPrice" hAlign="End">
+                <Text id="textPrice" text="{i18n>columnPrice}"/>
+            </Column>
+        </columns>
         <items>
-            <ObjectListItem id="objListItem" title="{northwind>Quantity} x {northwind>ProductName}" 
-                                            number="{ parts: [{path:'northwind>ExtendedPrice'}]}"
-                                            numberUnit="{currency>/usd}"
-                                            numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}"
-                                            type="Navigation"
+            <ColumnListItem id="columnListItem" type="Navigation"
                                             press="navigateToDetails">
-                <!--firstStatus>
-                    <ObjectStatus id="objStatus" text="{ path: 'invoices>Status',
-                                                        formatter: '.formatter.invoiceStatus'}"></ObjectStatus>
-                </firstStatus-->
-            </ObjectListItem>
+                <cells>
+                    <ObjectNumber id="obNumber" number="{northwind>Quantity}" emphasized="false"/>
+                    <ObjectIdentifier id="oIndentifier" title="{northwind>ProductName}"/>
+                    <Text id="oTextStatus" text="{
+                        path: 'northwind>status',
+                        formatter: '.formatter.invoiceStatus'
+                        }"/>
+                    <Text id="oTextShipperName" text="{northwind>ShipperName}" />
+                    <ObjectNumber id="oNumber" 
+                                number="{ parts: [{path:'northwind>ExtendedPrice'},
+                                                   {path: 'currency>/usd'}],
+                                            type: 'sap.ui.model.type.Currency',
+                                            formatOptions: {
+                                                showMeasure : false
+                                            }
+                                        }"
+                                unit="{currency>/usd}"
+                                state="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}" />
+                </cells>
+            </ColumnListItem>
         </items>
-    </List>
+    </Table>
 </mvc:View>

@@ -3,7 +3,12 @@
         xmlns:mvc="sap.ui.core.mvc" 
         xmlns:core="sap.ui.core"
         displayBlock="true">
-    <Panel id="panel" headerText="{i18n>helloPanel}" class="sapUiResponsiveMargin" width="auto">
+    <Panel id="panel" 
+            headerText="{i18n>helloPanel}" 
+            class="sapUiResponsiveMargin" 
+            width="auto"
+            expandable="{device>/system/phone}"
+            expanded="{= !${device>/system/phone} }">
         <content>
             <!--Text id="text" text="Hello World123"></Text-->
             <Button id="helloDialogButton" 
