@@ -13,8 +13,8 @@
             <!--Text id="text" text="Hello World123"></Text-->
             <Button id="helloDialogButton" 
                     icon="sap-icon://action" 
-                    text="{i18n>helloDialogButton}" press=".onOpenDialog" class="sapUiSmallMarginEnd" />
-            <Button id="button" text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd" />
+                    text="{i18n>helloDialogButton}" press=".onOpenDialog" class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop" />
+            <Button id="button" text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd sapUiHideOnDesktop" />
             <Input id="input" value="{/recipient/name}" valueLiveUpdate="true" width="60%" />
             <Text id="text" text="Hello {/recipient/name}" class="sapUiSmallMargin boldElements" />
         </content>

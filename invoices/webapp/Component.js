@@ -2,13 +2,19 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "logaligroup/invoices/model/Models",
     "sap/ui/model/resource/ResourceModel",
-    "./controller/HelloDialog"
+    "./controller/HelloDialog",
+    "sap/ui/Device"
 ],
     /**
      * @param {typeof sap.ui.core.UIComponent} UIComponent 
      * @param {typeof sap.ui.model.resource.ResourceModel} ResourceModel
+     * @param {typeof sap.ui.Device} Device
      */
-    function (UIComponent, Models, ResourceModel, HelloDialog) {
+    function (UIComponent,
+	Models,
+	ResourceModel,
+	HelloDialog,
+	Device) {
         return UIComponent.extend("logaligroup.invoices.Component", {
 
             metadata: {
@@ -48,6 +54,15 @@ sap.ui.define([
 
             openHelloDialog: function () {
                 this._helloDialog.open();
+            },
+
+            getContentDensityClass: function () {
+                if (!Device.support.touch) {
+                    this._sContentDesnsityClass = "sapUiSizeCompact";
+                } else {
+                    this._sContentDesnsityClass = "sapUiSizeCozy";
+                };
+                return this._sContentDesnsityClass;
             }
         });
     });

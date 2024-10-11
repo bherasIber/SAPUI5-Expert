@@ -4,7 +4,7 @@
         xmlns:logali="logaligroup.invoices.control"
         displayBlock="true">
     <Page id="pageDetails" title="{i18n>detailsPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
-        <ObjectHeader id="objectHeader" title="{northwind>Quantity} x {northwind>ProductName}">
+        <ObjectHeader id="objectHeader" title="{northwind>Quantity} x {northwind>ProductName}" responsive="true" fullScreenOptimized="true">
             <attributes>
                 <ObjectAttribute id="ShipName" text="{northwind>ShipName}"/>
                 <ObjectAttribute id="ShipAddress" text="{northwind>ShipAddress}"/>
